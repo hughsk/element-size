@@ -4,6 +4,10 @@ function getSize(element) {
   // Handle cases where the element is not already
   // attached to the DOM by briefly appending it
   // to document.body, and removing it again later.
+  if (element === window || element === document.body) {
+    return [window.innerWidth, window.innerHeight]
+  }
+
   if (!element.parentNode) {
     var temporary = true
     document.body.appendChild(element)
